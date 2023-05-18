@@ -3,22 +3,19 @@
     "Authors": [
       {
         "Name": "gbaptista"
+      },
+      {
+        "Name": "ethmth"
       }
     ],
     "Category": "System Information",
     "Icon": "applications-utilities",
-    "Id": "com.github.gbaptista.magic-status",
-    "Name": "Magic Status",
-    "ServiceTypes": [
-      "Plasma/Applet"
-    ],
+    "Id": "com.github.ethmth.magic-status-executables",
+    "Name": "Magic Status Exec",
+    "ServiceTypes": ["Plasma/Applet"],
     "Version": "1",
-    "Website": "https://github.com/gbaptista/magic-status",
-    "FormFactors": [
-      "tablet",
-      "handset",
-      "desktop"
-    ]
+    "Website": "https://github.com/ethmth/magic-status-executables",
+    "FormFactors": ["tablet", "handset", "desktop"]
   },
   "X-Plasma-API": "declarativeappletscript",
   "X-Plasma-MainScript": "ui/main.qml",

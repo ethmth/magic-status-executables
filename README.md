@@ -14,8 +14,8 @@ A [KDE Plasma](https://kde.org/plasma-desktop/) [Widget](https://store.kde.org/b
 ## Installing
 
 ```bash
-git clone https://github.com/gbaptista/magic-status.git \
-  /usr/share/plasma/plasmoids/com.github.gbaptista.magic-status
+git clone https://github.com/ethmth/magic-status-executables.git \
+  /usr/share/plasma/plasmoids/com.github.ethmth.magic-status-executables
 ```
 
 Right-click on a panel, _"Add Widgets..."_ and search for _"Magic Status"_.
@@ -32,10 +32,7 @@ The core idea of _Magic Status_ is to be easily connectable to a data source. So
 
 ```json
 {
-  "messages": [
-    "11:40:20",
-    "11:40"
-  ]
+  "messages": ["11:40:20", "11:40"]
 }
 ```
 
@@ -47,23 +44,23 @@ You can configure it by right-clicking and _"Configure Magic Status..."_:
   <img alt="A screenshot of the configuration screen." src="https://raw.githubusercontent.com/gbaptista/assets/main/magic-status/magic-status-config.png" width="60%">
 </div>
 
-As you can display any message that you want, anything is possible. I have two endpoints on [my local API](https://github.com/gbaptista/magic-status-api), [http://localhost:5000/time](https://github.com/gbaptista/magic-status-api#time) and [http://localhost:5000/music](https://github.com/gbaptista/magic-status-api#music).
+As you can display any message that you want, anything is possible. I have two endpoints on my local API, [http://localhost:5000/time](https://github.com/gbaptista/magic-status-api#time) and [http://localhost:5000/music](https://github.com/gbaptista/magic-status-api#music).
 
 The `/music` displays the current song playing:
+
 ```json
 {
-  "messages": [
-    "Rival Sons - Do Your Worst"
-  ]
+  "messages": ["Rival Sons - Do Your Worst"]
 }
 ```
+
 So, with two instances of the widget in my panel, I have the following result:
 
 <div align="center">
   <img alt="A screenshot of a panel with two widgets, the current time and the current song playing." src="https://raw.githubusercontent.com/gbaptista/assets/main/magic-status/magic-status-panel.png" width="40%">
 </div>
 
-For a concrete example, check [my personal local API](https://github.com/gbaptista/magic-status-api). I chose [Ruby](https://www.ruby-lang.org/en/), but you can build your own API with any language you want.
+<!-- For a concrete example, check [my personal local API](https://github.com/gbaptista/magic-status-api). I chose [Ruby](https://www.ruby-lang.org/en/), but you can build your own API with any language you want. -->
 
 ### Customizing
 
@@ -92,10 +89,10 @@ You can customize your messages by providing more information. To change the tex
 ## Development
 
 ```bash
-git clone https://github.com/gbaptista/magic-status.git \
-  /usr/share/plasma/plasmoids/com.github.gbaptista.magic-status
+git clone https://github.com/ethmth/magic-status-executables.git \
+  /usr/share/plasma/plasmoids/com.github.ethmth.magic-status-executables
 
-cd /usr/share/plasma/plasmoids/com.github.gbaptista.magic-status
+cd /usr/share/plasma/plasmoids/com.github.ethmth.magic-status-executables
 
 plasmoidviewer -a .
 
