@@ -16,7 +16,7 @@ Kirigami.FormLayout {
   TextField {
     id: serverEndpoint
     Kirigami.FormData.label: i18n("Server Endpoint:")
-    placeholderText: i18n("http://localhost:5000")
+    placeholderText: i18n("http://127.0.0.1:42145/")
   }
 
   QtControls1.SpinBox {

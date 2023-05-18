@@ -79,11 +79,17 @@ MouseArea {
     return message;
   }
 
-  function applyMessage(inputMessage) {
+  function applyMessage(inputMessage, messageColor="default") {
     const message = buildMessage(inputMessage);
 
     messageLabel.text = message.label.text;
-    messageLabel.color = message.label.color;
+    if(messageColor == "default") {
+      messageLabel.color = message.label.color;
+    }
+    else {
+      messageLabel.color = messageColor;
+    }
+ 
 
     progressBar.visible = message.progress.visible;
     progressBar.value = message.progress.value;
@@ -121,10 +127,10 @@ MouseArea {
           if(result.messages[messageIndex]) {
             applyMessage(result.messages[messageIndex]);
           } else {
-            applyMessage('...');
+            applyMessage('Magic Status Message Error', "red");
           }
-        } else {
-          applyMessage('offline');
+        } else {          
+          applyMessage('HTTP Server Error', "red");
         }
       } catch (_) {}
 

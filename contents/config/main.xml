@@ -4,13 +4,13 @@
 
   <group name="General">
     <entry name="serverEndpoint" type="String">
-      <default>http://localhost:5000</default>
+      <default>http://127.0.0.1:42145/</default>
     </entry>
     <entry name="widthFactor" type="Double">
       <default>2.8</default>
     </entry>
     <entry name="pullingInterval" type="Double">
-      <default>0.001</default>
+      <default>5.0</default>
     </entry>
   </group>
 </kcfg>
