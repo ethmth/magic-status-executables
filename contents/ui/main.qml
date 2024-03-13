@@ -2,16 +2,18 @@
 import QtQuick 2.6
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.15
+
 import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.kirigami 2.20 as Kirigami
+import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.plasma.plasmoid 2.0
 
-MouseArea {
+PlasmoidItem {
   id: root
 
-  Layout.minimumWidth: PlasmaCore.Units.gridUnit * 30
+  Layout.minimumWidth: Kirigami.Units.gridUnit * 30
 
-  Plasmoid.preferredRepresentation: Plasmoid.fullRepresentation
+  preferredRepresentation: fullRepresentation
   Plasmoid.backgroundHints: PlasmaCore.Types.ShadowBackground | PlasmaCore.Types.ConfigurableBackground
 
   property bool pendingRequest: false
@@ -22,10 +24,11 @@ MouseArea {
     text: "..."
     anchors.fill: parent
     horizontalAlignment: Text.AlignHCenter
+    verticalAlignment: Text.AlignVCenter
     anchors.bottomMargin: 0
   }
 
-  ProgressBar {
+  PlasmaComponents.ProgressBar {
     id: progressBar
     value: 0.5
     height: 2
@@ -36,14 +39,33 @@ MouseArea {
     anchors.bottomMargin: 1
   }
 
-  onClicked: switchLabel()
+  MouseArea {
+    id: mouseArea
+    anchors.fill: parent
+    hoverEnabled: true
+    onClicked: switchLabel()
+  }
+
+  Component.onCompleted: {
+    applyMessage('...');
+    updateMessage();
+  }
+
+  Timer {
+    interval: Math.max(plasmoid.configuration.pullingInterval * 1000, 1)
+    running: true
+    repeat: true
+    onTriggered: {
+      updateMessage()
+    }
+  }
 
   function switchLabel() {
     messageIndex = messageIndex + 1
   }
 
   function updateWidth() {
-    root.Layout.minimumWidth = PlasmaCore.Units.gridUnit * (
+    root.Layout.minimumWidth = Kirigami.Units.gridUnit * (
       Math.ceil(
         messageLabel.text.length / Math.max(plasmoid.configuration.widthFactor, 1)
       )
@@ -54,7 +76,7 @@ MouseArea {
     const message = {
       label: {
         text: '',
-        color: PlasmaCore.ColorScope.textColor
+        color: Kirigami.Theme.textColor
       },
       progress: { value: 0.1, visible: false }
     };
@@ -133,19 +155,5 @@ MouseArea {
 
     request.open('GET', plasmoid.configuration.serverEndpoint, true);
     request.send();
-  }
-
-  Component.onCompleted: {
-    applyMessage('...');
-    updateMessage();
-  }
-
-  Timer {
-    interval: Math.max(plasmoid.configuration.pullingInterval * 1000, 1)
-    running: true
-    repeat: true
-    onTriggered: {
-      updateMessage()
-    }
   }
 }
