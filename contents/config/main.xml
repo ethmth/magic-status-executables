@@ -7,10 +7,10 @@
       <default>http://127.0.0.1:42145/</default>
     </entry>
     <entry name="widthFactor" type="Double">
-      <default>2.8</default>
+      <default>3</default>
     </entry>
     <entry name="pullingInterval" type="Double">
-      <default>5.0</default>
+      <default>5</default>
     </entry>
   </group>
 </kcfg>

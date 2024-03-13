@@ -12,12 +12,11 @@
     "Icon": "applications-utilities",
     "Id": "com.github.ethmth.magic-status-executables",
     "Name": "Magic Status Exec",
-    "ServiceTypes": ["Plasma/Applet"],
     "Version": "1",
     "Website": "https://github.com/ethmth/magic-status-executables",
     "FormFactors": ["tablet", "handset", "desktop"]
   },
-  "X-Plasma-API": "declarativeappletscript",
-  "X-Plasma-MainScript": "ui/main.qml",
+  "KPackageStructure": "Plasma/Applet",
+  "X-Plasma-API-Minimum-Version": "6.0",
   "X-KDE-ParentApp": "org.kde.plasmashell"
 }
