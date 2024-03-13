@@ -9,9 +9,6 @@
     "Icon": "applications-utilities",
     "Id": "com.github.gbaptista.magic-status",
     "Name": "Magic Status",
-    "ServiceTypes": [
-      "Plasma/Applet"
-    ],
     "Version": "1",
     "Website": "https://github.com/gbaptista/magic-status",
     "FormFactors": [
@@ -20,7 +17,7 @@
       "desktop"
     ]
   },
-  "X-Plasma-API": "declarativeappletscript",
-  "X-Plasma-MainScript": "ui/main.qml",
+  "KPackageStructure": "Plasma/Applet",
+  "X-Plasma-API-Minimum-Version": "6.0",
   "X-KDE-ParentApp": "org.kde.plasmashell"
 }
